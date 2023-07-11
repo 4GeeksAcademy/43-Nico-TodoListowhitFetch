@@ -1,26 +1,36 @@
-import React from "react";
+import React from 'react';
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import Card from "./card.jsx"
 
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+	async function getCharacters() {
+		try {
+		  const API_URL = "https://rickandmortyapi.com/api";
+		  const requestConfig = {
+			method: "GET",
+			headers: {
+			  "Content-type": "application/json"
+			}
+		  };
+		  const response = await fetch(API_URL + "/character", requestConfig);
+		  if (response.status !== 200) {
+			console.log("Error en la solicitud", response.status);
+			return;
+		  }
+		  const body = await response.json();
+		  console.log(body);
+		} catch (error) {
+		  console.log(error);
+		}
+	  }
+	  
+	  getCharacters();
+	  
+	return(
+		<div>
+			<Card />
 		</div>
 	);
 };
 
-export default Home;
+export default Home
