@@ -9,6 +9,32 @@ function Todo() {
     fetchTodos();
   }, []);
 
+  const createUser = async () => {
+    try {
+      const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/Nico-43', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify([])
+      });
+  
+      if (response.ok) {
+        console.log('Usuario creado correctamente');
+      } else {
+        console.log('Error al crear el usuario');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  useEffect(() => {
+    createUser();
+    fetchTodos();
+  }, []);
+  
+
   const fetchTodos = async () => {
     try {
       const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/Nico-43', {
@@ -86,6 +112,31 @@ function Todo() {
       console.log(error);
     }
   };
+  const handleLimpiarTodas = async () => {
+    try {
+      const response = await fetch(
+        'https://assets.breatheco.de/apis/fake/todos/user/Nico-43',
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+  
+      if (response.ok) {
+        setTodos([]);
+        setTotal(0);
+        createUser(); // Crear un nuevo usuario después de limpiar las tareas
+      } else {
+        console.log('Error al limpiar las tareas');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+  
 
   return (
     <div className="todo-list-container">
@@ -115,6 +166,10 @@ function Todo() {
       <div className="total">
         {total} {total === 1 ? 'item left' : 'items left'}
       </div>
+      <button onClick={handleLimpiarTodas} className="btn btn-primary">
+        Limpiar todas las tareas
+      </button>
+
     </div>
   );
 }
