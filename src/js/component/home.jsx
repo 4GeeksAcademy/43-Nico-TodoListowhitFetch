@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Todo from "./todo.jsx"
+import Todo from "./todo.jsx";
 
 const Home = () => {
+
 	return(
 		<div>
 			<Todo />
@@ -10,4 +11,4 @@ const Home = () => {
 	);
 };
 
-export default Home
+export default Home;
