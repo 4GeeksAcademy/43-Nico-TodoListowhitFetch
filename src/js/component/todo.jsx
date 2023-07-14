@@ -127,7 +127,7 @@ function Todo() {
       if (response.ok) {
         setTodos([]);
         setTotal(0);
-        createUser(); // Crear un nuevo usuario después de limpiar las tareas
+        createUser();
       } else {
         console.log('Error al limpiar las tareas');
       }
