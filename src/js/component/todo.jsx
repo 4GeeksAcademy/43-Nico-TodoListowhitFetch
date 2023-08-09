@@ -11,7 +11,7 @@ function Todo() {
 
   const createUser = async () => {
     try {
-      const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/Nico-43', {
+      const response = await fetch('https://playground.4geeks.com/apis/fake/todos/user/Nico-43', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ function Todo() {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/Nico-43', {
+      const response = await fetch('https://playground.4geeks.com/apis/fake/todos/user/Nico-43', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ function Todo() {
       };
 
       try {
-        const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/Nico-43', {
+        const response = await fetch('https://playground.4geeks.com/apis/fake/todos/user/Nico-43', {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ function Todo() {
     newTodos.splice(index, 1);
 
     try {
-      const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/Nico-43', {
+      const response = await fetch('https://playground.4geeks.com/apis/fake/todos/user/Nico-43', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -115,7 +115,7 @@ function Todo() {
   const handleLimpiarTodas = async () => {
     try {
       const response = await fetch(
-        'https://assets.breatheco.de/apis/fake/todos/user/Nico-43',
+        'https://playground.4geeks.com/apis/fake/todos/user/Nico-43',
         {
           method: 'DELETE',
           headers: {
